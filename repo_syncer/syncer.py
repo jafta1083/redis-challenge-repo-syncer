@@ -1,5 +1,6 @@
 from typing import Dict, Optional
 
+import github
 from github import Github
 from github import InputGitTreeElement
 from jinja2 import Template
@@ -58,14 +59,28 @@ class Syncer:
             ]
         )
         commit = gh_repo.create_git_commit(commit_message, tree, [master])
+
+        self._delete_ref_if_exists(gh_repo, "refs/heads/sync-with-syncer")
+
         gh_repo.create_git_ref("refs/heads/sync-with-syncer", commit.sha)
         pull = gh_repo.create_pull(
             "Sample title", "Sample body", "master", "sync-with-syncer"
         )
         return pull.html_url
 
+    def _delete_ref_if_exists(self, gh_repo: github.Repository, ref: str):
+        try:
+            already = gh_repo.get_git_ref("heads/sync-with-syncer")
+        except github.GithubException as e:
+            if e.data["message"] == "Not Found":
+                return
+            else:
+                raise
+
+        already.delete()
+
     def read_template(self, language: Language, template_name: str):
-        with open("repo_syncer/templates/{template_name}") as f:
+        with open(f"repo_syncer/templates/{template_name}") as f:
             raw_contents = f.read()
 
         template = Template(raw_contents)

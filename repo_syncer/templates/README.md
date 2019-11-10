@@ -1,12 +1,10 @@
 # Redis Solution Starter - {{ language_name }}
 
-This is a starting point for {{ language_name }} solutions to the Redis Challenge.
+This is a starting point for {{ language_name }} solutions to the ['Build Your
+Own Redis' Challenge](https://rohitpaulk.com/articles/redis-challenge).
 
 **Steps to get started**:
 
-- Get a leaderboard URL & API key from Paul
-- Ensure your API key is available as `$REDIS_CHALLENGE_API_KEY`
-(env var)
 - Ensure you have `python` installed locally
 - Clone this repository
 
@@ -21,3 +19,13 @@ This is a starting point for {{ language_name }} solutions to the Redis Challeng
   `make test`)
 - Once `make test` passes, run `make test_and_report`.
 - Bump `current_stage` in your Makefile to go to the next stage!
+
+**Leaderboard**:
+
+If you'd like to be included in [the
+leaderboard](https://jayantbh.github.io/redis-challenge-leaderboard-ui/):
+
+- Ask Paul for an API key
+- Ensure your API key is available as `$REDIS_CHALLENGE_API_KEY` (env var)
+- After completing a stage, run `make test_and_report` to update your
+  leaderboard state

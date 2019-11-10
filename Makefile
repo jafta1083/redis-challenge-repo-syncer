@@ -1,0 +1,2 @@
+debug:
+	python -m debug
