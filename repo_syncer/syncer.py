@@ -1,4 +1,4 @@
-from typing import Dict, Optional
+from typing import Optional
 from dataclasses import dataclass
 
 import github
@@ -89,8 +89,11 @@ class Syncer:
                 for file_from_template in language.files
             ]
         )
-        commit = gh_repo.create_git_commit(commit_message, tree, [master])
+        if tree == master.tree:
+            # No changes
+            return None
 
+        commit = gh_repo.create_git_commit(commit_message, tree, [master])
         self._delete_ref_if_exists(gh_repo, "refs/heads/sync-with-syncer")
         gh_repo.create_git_ref("refs/heads/sync-with-syncer", commit.sha)
         pull = gh_repo.create_pull(
