@@ -28,17 +28,18 @@ class Language:
     files: [FileFromTemplate]
 
 
+F = FileFromTemplate
+
+
 PYTHON_LANGUAGE = Language(
     name="Python",
     file_extension="py",
     repo="rohitpaulk/redis-solution-starter-py",
     files=[
-        FileFromTemplate("README.md", "README.md"),
-        FileFromTemplate("Makefile", "Makefile"),
-        FileFromTemplate(".gitignore", "python/.gitignore"),
-        FileFromTemplate(
-            "spawn_redis_server.sh", "python/spawn_redis_server.sh", is_executable=True,
-        ),
-        FileFromTemplate("app/main.py", "python/app/main.py"),
+        F("README.md", "README.md"),
+        F("Makefile", "Makefile"),
+        F(".gitignore", "python/.gitignore"),
+        F("spawn_redis_server.sh", "python/spawn_redis_server.sh", is_executable=True),
+        F("app/main.py", "python/app/main.py"),
     ],
 )
