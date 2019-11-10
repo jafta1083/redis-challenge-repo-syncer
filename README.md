@@ -12,9 +12,6 @@ sync.
 
 ### Usage
 
-- make `sync_repos` will create pull requests on each starter repository (if
-  needed)
-
+- make `sync` will create pull requests on each starter repository (if needed)
 - Once you've vetted the PRs, use
   [`hubmerge`](https://github.com/rohitpaulk/hubmerge) to merge them
-
