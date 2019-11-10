@@ -14,10 +14,8 @@ Own Redis' Challenge](https://rohitpaulk.com/articles/redis-challenge).
   linux)
 - Run `make test`. You should see a failure message at this point.
 - Implement the required feature in `app/main.py`, iterate until `make test`
-  passes.
-- If you want more verbose output for errors, use `make test_debug` instead of
-  `make test`)
-- Once `make test` passes, run `make test_and_report`.
+  passes. (If you want more verbose output for errors, use `make test_debug`
+  instead of `make test`)
 - Bump `current_stage` in your Makefile to go to the next stage!
 
 **Leaderboard**:
