@@ -1,2 +1,2 @@
-debug:
-	python -m debug
+sync:
+	python -m sync
