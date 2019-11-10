@@ -4,13 +4,13 @@ import github
 from github import Github
 from github import InputGitTreeElement
 
-from .languages import PYTHON_LANGUAGE, Language
+from .languages import PYTHON_LANGUAGE, GO_LANGUAGE, Language
 
 
 class Syncer:
     def __init__(self, github_client: Github):
         self.github_client = github_client
-        self.languages = [PYTHON_LANGUAGE]
+        self.languages = [PYTHON_LANGUAGE, GO_LANGUAGE]
 
     def sync(self):
         for language in self.languages:
@@ -43,7 +43,13 @@ class Syncer:
                     path=file_from_template.path,
                     mode="100755" if file_from_template.is_executable else "100644",
                     type="blob",
-                    content=file_from_template.render({"language_name": language.name}),
+                    content=file_from_template.render(
+                        {
+                            "language_name": language.name,
+                            "language_required_executables": language.required_executables,
+                            "language_editable_file": language.editable_file,
+                        }
+                    ),
                 )
                 for file_from_template in language.files
             ]
