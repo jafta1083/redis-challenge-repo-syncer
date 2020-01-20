@@ -1,2 +1,2 @@
 sync:
-	python -m sync
+	pipenv run python -m sync

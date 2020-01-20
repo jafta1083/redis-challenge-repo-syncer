@@ -1,2 +1,6 @@
-# Implement your server here
-print("hey")
+def main():
+    print("Implement your Redis server here!")
+
+
+if __name__ == "__main__":
+    main()

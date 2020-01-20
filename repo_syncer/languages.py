@@ -25,7 +25,8 @@ class Language:
     name: str
     file_extension: str
     repo: str
-    editable_file: str
+    source_file: str
+    test_file: str
     required_executables: [str]
 
     files: [FileFromTemplate]
@@ -37,7 +38,7 @@ F = FileFromTemplate
 PYTHON_LANGUAGE = Language(
     name="Python",
     file_extension="py",
-    repo="codecrafters/redis-starter-py",
+    repo="codecrafters-io/redis-starter-py",
     source_file="app/main.py",
     test_file="tests/test_main.py",
     required_executables=["python (3.8)"],
@@ -56,7 +57,7 @@ PYTHON_LANGUAGE = Language(
 GO_LANGUAGE = Language(
     name="Golang",
     file_extension="go",
-    repo="codecrafters/redis-starter-golang",
+    repo="codecrafters-io/redis-starter-golang",
     source_file="app/server.go",
     test_file="app/server_test.go",
     required_executables=["go"],
