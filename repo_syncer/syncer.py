@@ -45,9 +45,10 @@ class Syncer:
                     type="blob",
                     content=file_from_template.render(
                         {
-                            "language_name": language.name,
-                            "language_required_executables": language.required_executables,
-                            "language_editable_file": language.editable_file,
+                            "language": language.name,
+                            "required_executable": language.required_executables[0],
+                            "source_file": language.source_file,
+                            "test_file": language.test_file,
                         }
                     ),
                 )

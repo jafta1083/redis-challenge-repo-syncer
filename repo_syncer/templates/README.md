@@ -1,29 +1,128 @@
-# Redis Solution Starter - {{ language_name }}
+This is a starting point for {{ language }} solutions to the CodeCrafters
+Redis Challenge.
 
-This is a starting point for {{ language_name }} solutions to the ['Build Your
-Own Redis' Challenge](https://rohitpaulk.com/articles/redis-challenge).
+In this challenge, you'll build a toy Redis clone that's capable of handling
+basic commands like `PING`, `SET` and `GET`. Along the way we'll learn about
+event loops, the Redis protocol and more. 
 
-**Steps to get started**:
+**Note**: If you're viewing this repo on GitHub, head over to
+[codecrafters.io](https://codecrafters.io) to start the challenge.
 
-- Ensure you have `{{ language_required_executables[0] }}` installed locally
-- Clone this repository
+# Usage
 
-**Workflow**:
+1. Ensure you have `{{ required_executable }}` installed locally
+2. Run `make install`, which'll install the required dependencies.
+3. Run `make run_local_server` to run your Redis server, which is implemented in
+   `{{ source_file }}`.
+3. Run `make test` to run local tests, which are located in `{{ test_file }}`
+4. Commit your changes and run `git push origin master` to submit your solution
+   to CodeCrafters. Test output will be streamed to your terminal.
+5. Bump the `current_stage` value in `.codecrafters.yml`, and run `git push
+   origin master` to advance to the next stage.
 
-- Run `make download_tester_mac` (or `download_tester_linux`, if you're running
-  linux)
-- Run `make test`. You should see a failure message at this point.
-- Implement the required feature in `{{ language_editable_file }}`, iterate
-  until `make test` passes. (If you want more verbose output for errors, use
-`make test_debug` instead of `make test`)
-- Bump `current_stage` in your Makefile to go to the next stage!
+# Passing the first stage
 
-**Leaderboard**:
+CodeCrafters runs tests when you do a `git push`. Make an empty commit and push
+your solution to see the first stage fail.
+   
+``` sh
+git commit --allow-empty -m "Running tests"
+git push origin master
+```
 
-If you'd like to be included in [the
-leaderboard](https://jayantbh.github.io/redis-challenge-leaderboard-ui/):
+You should see a failure message that says it wasn't able to connect to port
+`6379`.
 
-- Ask Paul for an API key
-- Ensure your API key is available as `$REDIS_CHALLENGE_API_KEY` (env var)
-- After completing a stage, run `make test_and_report` to update your
-  leaderboard state
+These tests take a while to run, so we've built a basic local testing setup for
+you at `{{ test_file }}`, where you can write your own tests and run them.
+
+We've already added a local test for the first stage, let's invoke it by running
+`make test`. You should see a failure message that looks like this: 
+   
+```sh
+============== FAILURES =============
+______ test_can_connect_to_6379 _____
+
+    def test_can_connect_to_6379():
+        with spawn_server():
+            # Shouldn't throw an error
+>           socket.create_connection(("localhost", 6379))
+
+    ...
+    ...
+    ...
+
+>               sock.connect(sa)
+E               ConnectionRefusedError: [Errno 111] Connection refused
+
+/usr/lib64/python3.8/socket.py:796: ConnectionRefusedError
+```
+   
+Let's fix the test by implementing a socket in `{{ source_file }}`
+ 
+```diff
+--- app/main.py	2020-01-20 10:29:06.254902363 +0530
++++ app/main.py	2020-01-20 10:23:36.160486553 +0530
+@@ -1,3 +1,4 @@
++import socket
+ import time
+ 
+ 
+@@ -5,6 +6,9 @@
+     # Implement your server here
+     print("hey")
+ 
++    s = socket.create_server(("localhost", 6379))
++    s.accept()  # Wait for a new connection
++
+ 
+ if __name__ == "__main__":
+     main()
+```
+
+Run `make test` again, and the tests should now pass!
+   
+```
+$ make test
+pipenv run pytest tests
+============================= test session starts ====================
+platform linux -- Python 3.8.1, pytest-5.3.3, py-1.8.1, pluggy-0.13.1
+rootdir: /redis-solution-starter-py
+collected 1 item                                                                                                                                                                                                                              
+
+tests/test_main.py .                                                                                                                                                                                                                    [100%]
+
+============================== 1 passed in 0.13s =====================
+```
+
+Now it's time to submit our result to CodeCrafters! Commit your changes and run
+`git push origin master`.
+
+Time to move on to the next stage! Bump the `current_stage` value in
+`.codecrafters.yml` and run `git push origin master` again.
+
+{% if language == "Python" %}
+
+# Troubleshooting
+
+### `make install` can't find Python 3.8, although I have it installed
+
+When running `make install`, you might be prompted with something like this: 
+
+```
+Warning: Python 3.8 was not found on your system…
+You can specify specific versions of Python with:
+  $ pipenv --python path/to/python
+```
+
+This is because `pipenv` expects your default `python` executable's version to
+be 3.8. If you've installed 3.8 elsewhere, use `pipenv --python
+<path/to/your/python38> install`. For example, if you have Python 3.8
+installed at `/usr/bin/python38`, then run the following: 
+
+``` sh
+pipenv --python /usr/bin/python38 install
+```
+
+
+{% endif %}
