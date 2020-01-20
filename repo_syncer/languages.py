@@ -63,7 +63,8 @@ GO_LANGUAGE = Language(
     required_executables=["go"],
     files=[
         F("README.md", "README.md"),
-        F("Makefile", "go/Makefile"),
+        # TODO: Change!
+        F("Makefile", "python/Makefile"),
         F("spawn_redis_server.sh", "go/spawn_redis_server.sh", is_executable=True),
         F("app/server.go", "go/app/server.go"),
     ],
