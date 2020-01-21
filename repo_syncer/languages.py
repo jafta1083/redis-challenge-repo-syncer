@@ -43,11 +43,12 @@ PYTHON_LANGUAGE = Language(
     test_file="tests/test_main.py",
     required_executables=["python (3.8)"],
     files=[
+        F("README.md", "README.md"),
+        F("codecrafters.yml", "codecrafters.yml"),
         F("app/main.py", "python/app/main.py"),
         F("Makefile", "python/Makefile"),
         F("Pipfile", "python/Pipfile"),
         F("Pipfile.lock", "python/Pipfile.lock"),
-        F("README.md", "README.md"),
         F("spawn_redis_server.sh", "python/spawn_redis_server.sh", is_executable=True),
         F("tests/test_main.py", "python/tests/test_main.py"),
         F("tests/__init__.py", "python/tests/__init__.py"),
@@ -63,6 +64,7 @@ GO_LANGUAGE = Language(
     required_executables=["go"],
     files=[
         F("README.md", "README.md"),
+        F("codecrafters.yml", "codecrafters.yml"),
         # TODO: Change!
         F("Makefile", "python/Makefile"),
         F("spawn_redis_server.sh", "go/spawn_redis_server.sh", is_executable=True),
