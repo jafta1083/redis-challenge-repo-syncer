@@ -55,6 +55,22 @@ PYTHON_LANGUAGE = Language(
     ],
 )
 
+SWIFT_LANGUAGE = Language(
+    name="Swift",
+    file_extension="swift",
+    repo="codecrafters-io/redis-starter-swift",
+    source_file="app/main.swift",
+    test_file="<not implemented>",
+    required_executables=["swift (5.1)"],
+    files=[
+        F("README.md", "README.md"),
+        F("codecrafters.yml", "codecrafters.yml"),
+        F("app/main.swift", "swift/app/main.swift"),
+        F("Makefile", "swift/Makefile"),
+        F("spawn_redis_server.sh", "swift/spawn_redis_server.sh", is_executable=True),
+    ],
+)
+
 GO_LANGUAGE = Language(
     name="Golang",
     file_extension="go",
