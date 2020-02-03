@@ -17,3 +17,11 @@ debug: false
 # Available versions: python-3.7, python-3.8
 language_pack: python-3.8
 {% endif %}
+
+{% if language == "Swift" %}
+# Use this to change the Swift version used to run your code
+# on Codecrafters.
+#
+# Available versions: swift-5.1
+language_pack: swift-5.1
+{% endif %}
