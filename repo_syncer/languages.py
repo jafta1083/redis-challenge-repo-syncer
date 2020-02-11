@@ -81,8 +81,7 @@ GO_LANGUAGE = Language(
     files=[
         F("README.md", "README.md"),
         F("codecrafters.yml", "codecrafters.yml"),
-        # TODO: Change!
-        F("Makefile", "python/Makefile"),
+        F("Makefile", "go/Makefile"),
         F("spawn_redis_server.sh", "go/spawn_redis_server.sh", is_executable=True),
         F("app/server.go", "go/app/server.go"),
     ],
