@@ -72,7 +72,7 @@ SWIFT_LANGUAGE = Language(
 )
 
 GO_LANGUAGE = Language(
-    name="Golang",
+    name="Go",
     file_extension="go",
     repo="codecrafters-io/redis-starter-golang",
     source_file="app/server.go",
