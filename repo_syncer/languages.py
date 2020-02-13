@@ -47,11 +47,7 @@ PYTHON_LANGUAGE = Language(
         F("codecrafters.yml", "codecrafters.yml"),
         F("app/main.py", "python/app/main.py"),
         F("Makefile", "python/Makefile"),
-        F("Pipfile", "python/Pipfile"),
-        F("Pipfile.lock", "python/Pipfile.lock"),
         F("spawn_redis_server.sh", "python/spawn_redis_server.sh", is_executable=True),
-        F("tests/test_main.py", "python/tests/test_main.py"),
-        F("tests/__init__.py", "python/tests/__init__.py"),
     ],
 )
 
