@@ -4,13 +4,13 @@ import github
 from github import Github
 from github import InputGitTreeElement
 
-from .languages import PYTHON_LANGUAGE, GO_LANGUAGE, SWIFT_LANGUAGE, Language
+from .languages import PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE, Language
 
 
 class Syncer:
     def __init__(self, github_client: Github):
         self.github_client = github_client
-        self.languages = [PYTHON_LANGUAGE, GO_LANGUAGE, SWIFT_LANGUAGE]
+        self.languages = [PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE]
 
     def sync(self):
         for language in self.languages:
@@ -22,8 +22,7 @@ class Syncer:
                 print(" - No changes")
 
     def sync_language(self, language: Language) -> Optional[str]:
-        """
-        Returns the pull request URL if a pull request was created.
+        """ Returns the pull request URL if a pull request was created.
         """
         gh_repo = self.github_client.get_repo(language.repo)
 

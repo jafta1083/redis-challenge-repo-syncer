@@ -86,7 +86,7 @@ PHP_LANGUAGE = Language(
     files=[
         F("README.md", "README.md"),
         F("codecrafters.yml", "codecrafters.yml"),
-        F("app/main.py", "php/app/main.py"),
+        F("app/main.php", "php/app/main.php"),
         F("spawn_redis_server.sh", "php/spawn_redis_server.sh", is_executable=True),
     ],
 )
