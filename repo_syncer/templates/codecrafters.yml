@@ -1,33 +1,25 @@
-# This is the current stage that you're on.
-#
-# Whenever you want to advance to the next stage,
-# bump this to the next number.
-current_stage: 1
-
 # Set this to true if you want debug logs.
 #
 # These can be VERY verbose, so we suggest turning them off
 # unless you really need them.
 debug: false
 
-{% if language == "Python" %}
-# Use this to change the Python version used to run your code
+# Use this to change the {{ language }} version used to run your code
 # on Codecrafters.
 #
+{% if language == "Python" %}
 # Available versions: python-3.7, python-3.8
 language_pack: python-3.8
 {%- endif %}
 {% if language == "Swift" %}
-# Use this to change the Swift version used to run your code
-# on Codecrafters.
-#
 # Available versions: swift-5.1
 language_pack: swift-5.1
 {%- endif %}
 {% if language == "Go" %}
-# Use this to change the Go version used to run your code
-# on Codecrafters.
-#
 # Available versions: go-1.13 
 language_pack: go-1.13
+{%- endif %}
+{% if language == "PHP" %}
+# Available versions: php-7.4
+language_pack: php-7.4
 {%- endif %}
