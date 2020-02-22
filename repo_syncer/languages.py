@@ -26,7 +26,6 @@ class Language:
     file_extension: str
     repo: str
     source_file: str
-    test_file: str
     required_executables: [str]
 
     files: [FileFromTemplate]
@@ -40,7 +39,6 @@ PYTHON_LANGUAGE = Language(
     file_extension="py",
     repo="codecrafters-io/redis-starter-py",
     source_file="app/main.py",
-    test_file="tests/test_main.py",
     required_executables=["python (3.8)"],
     files=[
         F("README.md", "README.md"),
@@ -51,28 +49,26 @@ PYTHON_LANGUAGE = Language(
     ],
 )
 
-SWIFT_LANGUAGE = Language(
-    name="Swift",
-    file_extension="swift",
-    repo="codecrafters-io/redis-starter-swift",
-    source_file="app/main.swift",
-    test_file="<not implemented>",
-    required_executables=["swift (5.1)"],
-    files=[
-        F("README.md", "README.md"),
-        F("codecrafters.yml", "codecrafters.yml"),
-        F("app/main.swift", "swift/app/main.swift"),
-        F("Makefile", "swift/Makefile"),
-        F("spawn_redis_server.sh", "swift/spawn_redis_server.sh", is_executable=True),
-    ],
-)
+# SWIFT_LANGUAGE = Language(
+#     name="Swift",
+#     file_extension="swift",
+#     repo="codecrafters-io/redis-starter-swift",
+#     source_file="app/main.swift",
+#     required_executables=["swift (5.1)"],
+#     files=[
+#         F("README.md", "README.md"),
+#         F("codecrafters.yml", "codecrafters.yml"),
+#         F("app/main.swift", "swift/app/main.swift"),
+#         F("Makefile", "swift/Makefile"),
+#         F("spawn_redis_server.sh", "swift/spawn_redis_server.sh", is_executable=True),
+#     ],
+# )
 
 GO_LANGUAGE = Language(
     name="Go",
     file_extension="go",
     repo="codecrafters-io/redis-starter-golang",
     source_file="app/server.go",
-    test_file="app/server_test.go",
     required_executables=["go"],
     files=[
         F("README.md", "README.md"),
@@ -80,5 +76,20 @@ GO_LANGUAGE = Language(
         F("Makefile", "go/Makefile"),
         F("spawn_redis_server.sh", "go/spawn_redis_server.sh", is_executable=True),
         F("app/server.go", "go/app/server.go"),
+    ],
+)
+
+PHP_LANGUAGE = Language(
+    name="PHP",
+    file_extension="php",
+    repo="codecrafters-io/redis-starter-php",
+    source_file="app/main.php",
+    required_executables=["php (3.8)"],
+    files=[
+        F("README.md", "README.md"),
+        F("codecrafters.yml", "codecrafters.yml"),
+        F("app/main.py", "php/app/main.py"),
+        F("Makefile", "php/Makefile"),
+        F("spawn_redis_server.sh", "php/spawn_redis_server.sh", is_executable=True),
     ],
 )

@@ -48,7 +48,6 @@ class Syncer:
                             "language": language.name,
                             "required_executable": language.required_executables[0],
                             "source_file": language.source_file,
-                            "test_file": language.test_file,
                         }
                     ),
                 )

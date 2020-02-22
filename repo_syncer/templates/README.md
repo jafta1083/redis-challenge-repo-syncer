@@ -19,12 +19,6 @@ event loops, the Redis protocol and more.
    `.codecrafters.yml`, and run `git push origin master` to advance to the next
    stage.
    
-{% if language == "Python" %}
-# Local tests
-
-1. Run `make test` to run local tests, which are located in `{{ test_file }}`
-{% endif %}
-
 # Passing the first stage
 
 CodeCrafters runs tests when you do a `git push`. Make an empty commit and push
