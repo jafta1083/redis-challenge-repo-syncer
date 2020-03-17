@@ -1,2 +1,5 @@
 #!/bin/sh
-exec go run app/server.go
+set -e
+tmpFile=$(mktemp)
+go build -o $tmpFile app/server.go
+exec $tmpFile
