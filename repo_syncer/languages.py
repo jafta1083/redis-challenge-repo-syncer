@@ -23,7 +23,6 @@ class FileFromTemplate:
 @dataclass
 class Language:
     name: str
-    file_extension: str
     repo: str
     source_file: str
     required_executables: [str]
@@ -36,7 +35,6 @@ F = FileFromTemplate
 
 PYTHON_LANGUAGE = Language(
     name="Python",
-    file_extension="py",
     repo="codecrafters-io/redis-starter-py",
     source_file="app/main.py",
     required_executables=["python (3.8)"],
@@ -50,7 +48,6 @@ PYTHON_LANGUAGE = Language(
 
 # SWIFT_LANGUAGE = Language(
 #     name="Swift",
-#     file_extension="swift",
 #     repo="codecrafters-io/redis-starter-swift",
 #     source_file="app/main.swift",
 #     required_executables=["swift (5.1)"],
@@ -65,7 +62,6 @@ PYTHON_LANGUAGE = Language(
 
 GO_LANGUAGE = Language(
     name="Go",
-    file_extension="go",
     repo="codecrafters-io/redis-starter-golang",
     source_file="app/server.go",
     required_executables=["go"],
@@ -79,7 +75,6 @@ GO_LANGUAGE = Language(
 
 PHP_LANGUAGE = Language(
     name="PHP",
-    file_extension="php",
     repo="codecrafters-io/redis-starter-php",
     source_file="app/main.php",
     required_executables=["php (7.4)"],
