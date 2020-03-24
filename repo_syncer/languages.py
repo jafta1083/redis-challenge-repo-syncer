@@ -73,6 +73,19 @@ GO_LANGUAGE = Language(
     ],
 )
 
+C_LANGUAGE = Language(
+    name="C",
+    repo="codecrafters-io/redis-starter-c",
+    source_file="app/server.c",
+    required_executables=["gcc"],
+    files=[
+        F("README.md", "README.md"),
+        F("codecrafters.yml", "codecrafters.yml"),
+        F("spawn_redis_server.sh", "c/spawn_redis_server.sh", is_executable=True),
+        F("app/server.c", "c/app/server.c"),
+    ],
+)
+
 PHP_LANGUAGE = Language(
     name="PHP",
     repo="codecrafters-io/redis-starter-php",

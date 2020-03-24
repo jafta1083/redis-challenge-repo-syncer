@@ -5,13 +5,13 @@ import github
 from github import Github
 from github import InputGitTreeElement
 
-from .languages import PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE, Language
+from .languages import PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE, C_LANGUAGE, Language
 
 
 class Syncer:
     def __init__(self, github_client: Github):
         self.github_client = github_client
-        self.languages = [PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE]
+        self.languages = [PYTHON_LANGUAGE, GO_LANGUAGE, PHP_LANGUAGE, C_LANGUAGE]
 
     def sync(self):
         for language in self.languages:
